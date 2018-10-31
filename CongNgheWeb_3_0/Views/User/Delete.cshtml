@@ -1,0 +1,44 @@
+﻿@model CongNgheWeb_3_0.Models.tbl_User
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="@Url.Action("Index","Admin")">Trang chủ</a></li>
+    <li class="breadcrumb-item"><a href="@Url.Action("ListTeacher","Admin")">Danh sách giảng viên</a></li>
+    <li class="breadcrumb-item">Xóa giảng viên : @Model.UserName</li>
+</ol>
+<div class="agileinfo-grap text-center">
+    <div class="agileits-box">
+        <header class="agileits-box-header clearfix">
+            <h3>Xóa Giảng viên <strong>@Model.UserName</strong></h3>
+        </header>
+        <div class="agileits-box-body clearfix text-left">
+            <h4>Thông tin</h4>
+            <p><strong>Số điện thoại: </strong>
+            @if (@Model.NumberPhone==null)
+            {
+                <span class="label label-success">Chưa nhập</span>
+            }
+            else
+            {
+                @Model.NumberPhone
+            }
+            </p>
+            <p><strong>Email: </strong>@Model.Email</p>
+        </div>
+        <footer>
+            @using (Html.BeginForm())
+            {
+                <input type="submit" class="btn btn-danger" value="Đồng ý" />
+
+                <a class="btn btn-primary" href="@Url.Action("ListTeacher", "Admin")">
+                    Về danh sách
+                </a>
+            }
+
+
+        </footer>
+    </div>
+</div>
+
